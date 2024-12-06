@@ -41,25 +41,25 @@ class Report {
   }
 }
 
-const inputRaw: string = Deno.readTextFileSync("./day/2/input/input.txt");
+export function day2part1(): number {
+  const inputRaw: string = Deno.readTextFileSync("./day/2/input/input.txt");
 
-const reports: Report[] = [];
+  const reports: Report[] = [];
 
-for (const line of inputRaw.split("\n")) {
-  if (line.length === 0) {
-    continue;
+  for (const line of inputRaw.split("\n")) {
+    if (line.length === 0) {
+      continue;
+    }
+
+    const lineSplit: string[] = line.split(/ +/);
+
+    const report = new Report();
+    reports.push(report);
+
+    for (const level of lineSplit) {
+      report.levels.push({ value: Number.parseInt(level) });
+    }
   }
 
-  const lineSplit: string[] = line.split(/ +/);
-
-  const report = new Report();
-  reports.push(report);
-
-  for (const level of lineSplit) {
-    report.levels.push({ value: Number.parseInt(level) });
-  }
+  return reports.filter((report) => report.isSafe()).length;
 }
-
-console.log(
-  `Safe reports: ${reports.filter((report) => report.isSafe()).length}`,
-);
