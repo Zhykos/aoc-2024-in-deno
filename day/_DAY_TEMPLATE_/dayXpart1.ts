@@ -1,6 +1,6 @@
-export function day7part2(): number {
+export function dayXpart1(): number {
   const inputRaw: string = Deno.readTextFileSync(
-    "./day/7/input/input.txt",
+    "./day/X/input/input.txt",
   );
 
   return 0;
