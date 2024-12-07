@@ -6,6 +6,6 @@ Deno.test("Day 7 part 1", () => {
   assertEquals(day7part1(), 2437272016585);
 });
 
-Deno.test.ignore("Day 7 part 2", () => {
-  assertEquals(day7part2(), 0);
+Deno.test("Day 7 part 2", () => {
+  assertEquals(day7part2(), 162987117690649);
 });
