@@ -7,3 +7,5 @@ https://adventofcode.com/2024
 Deno: https://deno.com/
 
 Deno contest for Advent of Code: https://deno.com/blog/advent-of-code-2024
+
+Launch a specific test, for instance: `deno test --allow-read --filter "Day 6 part 1"`

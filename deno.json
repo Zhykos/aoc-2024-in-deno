@@ -1,6 +1,5 @@
 {
   "tasks": {
-    "test": "deno test --allow-read",
-    "test-only-example": "deno test --allow-read --filter \"Day 6 part 1\""
+    "test": "deno test --allow-read"
   }
 }
