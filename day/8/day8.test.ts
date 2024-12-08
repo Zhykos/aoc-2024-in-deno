@@ -7,5 +7,5 @@ Deno.test("Day 8 part 1", () => {
 });
 
 Deno.test("Day 8 part 2", () => {
-  assertEquals(day8part2(), 0);
+  assertEquals(day8part2(), 949);
 });
