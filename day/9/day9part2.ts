@@ -1,6 +1,6 @@
 export function day9part2(): number {
   const inputRaw: string = Deno.readTextFileSync(
-    "./day/9/input/mini-input.txt",
+    "./day/9/input/input.txt",
   );
 
   const line: string = inputRaw.split("\n")[0];
@@ -43,28 +43,35 @@ export function day9part2(): number {
 
     const freeSpace = diskMap.blocks[freeSpaceIndex] as FreeSpace;
 
-    const swap: DiskBlock = diskMap.blocks[freeSpaceIndex];
-    diskMap.blocks[freeSpaceIndex] = diskMap.blocks[fileBlockToMoveIndex];
-    diskMap.blocks[fileBlockToMoveIndex] = swap;
+    diskMap.blocks[freeSpaceIndex] = new FileBlock(
+      fileBlockToMove.size,
+      fileBlockToMove.position,
+    );
+    diskMap.blocks[fileBlockToMoveIndex] = new FreeSpace(fileBlockToMove.size);
 
     if (freeSpace.size > fileBlockToMove.size) {
-      const diff: number = freeSpace.size - fileBlockToMove.size;
-      freeSpace.size = fileBlockToMove.size;
-
-      // Insert new free space
-      const newFreeSpace = new FreeSpace(diff);
+      const newFreeSpace = new FreeSpace(freeSpace.size - fileBlockToMove.size);
       diskMap.blocks.splice(freeSpaceIndex + 1, 0, newFreeSpace);
     }
   }
 
-  const finalState: string = diskMap.display();
+  const numbers: number[] = [];
+  for (const block of diskMap.blocks) {
+    if (block instanceof FileBlock) {
+      for (let i = 0; i < block.size; i++) {
+        numbers.push(block.position);
+      }
+    } else if (block instanceof FreeSpace) {
+      for (let i = 0; i < block.size; i++) {
+        numbers.push(0);
+      }
+    }
+  }
 
   let checksum = 0;
-  for (let index = 0; index < finalState.length; index++) {
-    const block = finalState[index];
-    if (block !== ".") {
-      checksum += Number.parseInt(block) * index;
-    }
+  for (let index = 0; index < numbers.length; index++) {
+    const block = numbers[index];
+    checksum += block * index;
   }
   return checksum;
 }
