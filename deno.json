@@ -1,5 +1,8 @@
 {
   "tasks": {
     "test": "deno test --allow-read"
+  },
+  "imports": {
+    "@std/collections": "jsr:@std/collections@^1.0.9"
   }
 }
