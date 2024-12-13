@@ -45,7 +45,6 @@ export function day13part2(): number {
 
     const machine = new Machine(buttonA, buttonB, prize);
     machines.push(machine);
-    console.log(machine);
   }
 
   let minTokens = 0;
