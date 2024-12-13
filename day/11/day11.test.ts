@@ -4,7 +4,7 @@ import { day11part2 } from "./day11part2.ts";
 import { day11part2a } from "./day11part2a.ts";
 import { day11part2b } from "./day11part2b.ts";
 
-Deno.test("Day 11 part 1", () => {
+Deno.test("Day 11 part 1 TOO-LONG", () => {
   assertEquals(day11part1(), 182081);
 });
 

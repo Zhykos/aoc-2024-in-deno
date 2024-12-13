@@ -1,6 +1,7 @@
 {
   "tasks": {
-    "test": "deno test --allow-read"
+    "test": "deno test --allow-read --filter \"/^Day \\d+ part \\d+$/\"",
+    "test-even-long": "deno test --allow-read"
   },
   "imports": {
     "@std/collections": "jsr:@std/collections@^1.0.9"

@@ -14,4 +14,8 @@ Deno contest for Advent of Code: https://deno.com/blog/advent-of-code-2024.
 
 Launch a specific test, for instance: `deno test --allow-read --filter "Day 6 part 1"`.
 
-Some tests are ignored because they are too slow. You can run all of them with `deno task test`.
+Some tests are ignored because they are too slow.
+You can run all of them with `deno task test`, but it will not run the slow ones.
+
+To run all tests, even the slow ones, use `deno task test-even-long`.
+The ones that are ignored are not resolved yet or don't have a solution.
