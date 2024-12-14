@@ -1,10 +1,10 @@
-export function day14part1(): number {
+export function day14part1mini(): number {
   const inputRaw: string = Deno.readTextFileSync(
-    "./day/14/input/input.txt",
+    "./day/14/input/mini-input.txt",
   );
 
-  const tailsWide = 101;
-  const tailsTall = 103;
+  const tailsWide = 11;
+  const tailsTall = 7;
   const secondsSimulation = 100;
 
   const robots: Robot[] = [];
@@ -35,9 +35,10 @@ export function day14part1(): number {
   for (const robot of robots) {
     robot.x = (robot.x + (robot.moveX * secondsSimulation)) % tailsWide;
     robot.y = (robot.y + (robot.moveY * secondsSimulation)) % tailsTall;
+    console.log(robot);
   }
 
-  /*for (let i = 0; i < tailsTall; i++) {
+  for (let i = 0; i < tailsTall; i++) {
     let line = "";
     for (let j = 0; j < tailsWide; j++) {
       let isRobot = false;
@@ -55,7 +56,7 @@ export function day14part1(): number {
       }
     }
     console.log(line);
-    }*/
+  }
 
   const mapXseparatation = Math.floor(tailsWide / 2);
   const mapYseparatation = Math.floor(tailsTall / 2);
