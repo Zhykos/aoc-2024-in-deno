@@ -6,6 +6,6 @@ Deno.test("Day 14 part 1", () => {
   assertEquals(day14part1(), 211692000);
 });
 
-Deno.test("Day 14 part 2", () => {
-  assertEquals(day14part2(), 0);
+Deno.test("Day 14 part 2 TOO LONG", () => {
+  assertEquals(day14part2(), 6587);
 });
