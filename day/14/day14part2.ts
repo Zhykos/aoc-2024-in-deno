@@ -33,6 +33,13 @@ export function day14part2(): number {
 
   try {
     Deno.removeSync("./day/14/output/", { recursive: true });
+  } catch (err) {
+    if (!(err instanceof Deno.errors.NotFound)) {
+      throw err;
+    }
+  }
+
+  try {
     Deno.mkdirSync("./day/14/output/");
   } catch (err) {
     if (!(err instanceof Deno.errors.AlreadyExists)) {
