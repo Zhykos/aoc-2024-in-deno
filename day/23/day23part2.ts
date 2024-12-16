@@ -1,5 +1,5 @@
 export function day23part2(): number {
-  const inputRaw: string = Deno.readTextFileSync(
+  const _: string = Deno.readTextFileSync(
     "./day/23/input/input.txt",
   );
 
