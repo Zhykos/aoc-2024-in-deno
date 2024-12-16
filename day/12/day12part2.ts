@@ -1,6 +1,6 @@
 export function day12part2(): number {
   const inputRaw: string = Deno.readTextFileSync(
-    "./day/12/input/mini1-input.txt",
+    "./day/12/input/input.txt",
   );
 
   const garden: FlowerPot[][] = [];
@@ -21,11 +21,7 @@ export function day12part2(): number {
   }
 
   const regions: FlowerPot[][] = computeRegions(garden);
-  const scores = computeAreasAndSides(
-    regions,
-    garden.length,
-    garden[0].length,
-  );
+  const scores: number[] = computeAreasAndSides(regions);
   return scores.reduce((acc, curr) => acc + curr, 0);
 }
 
@@ -80,68 +76,19 @@ function computeRegions(garden: FlowerPot[][]): FlowerPot[][] {
 
 function computeAreasAndSides(
   regions: FlowerPot[][],
-  lines: number,
-  columns: number,
 ): number[] {
-  return regions.map((region) =>
-    computeSides(region, lines, columns) * region.length
-  );
+  return regions.map((region) => computeSides(region) * region.length);
 }
 
 function computeSides(
   region: FlowerPot[],
-  lines: number,
-  columns: number,
 ): number {
-  let sides = 0;
+  // A side is also a corner, so compute the number of sides by checking if the corner is connected to another flower pot
 
-  for (const flowerPot of region) {
-    const i = flowerPot.line;
-    const j = flowerPot.column;
-
-    // if upper left corner is connected to another flower pot
-    if (
-      !region.find((flowerPot) =>
-        flowerPot.line === i - 1 && flowerPot.column === j &&
-        flowerPot.line === i && flowerPot.column === j - 1
-      )
-    ) {
-      sides += 2;
-    }
-
-    // if upper right corner is connected to another flower pot
-    if (
-      !region.find((flowerPot) =>
-        flowerPot.line === i - 1 && flowerPot.column === j &&
-        flowerPot.line === i && flowerPot.column === j + 1
-      )
-    ) {
-      sides += 2;
-    }
-
-    // if lower left corner is connected to another flower pot
-    if (
-      !region.find((flowerPot) =>
-        flowerPot.line === i + 1 && flowerPot.column === j &&
-        flowerPot.line === i && flowerPot.column === j - 1
-      )
-    ) {
-      sides += 2;
-    }
-
-    // if lower right corner is connected to another flower pot
-    if (
-      !region.find((flowerPot) =>
-        flowerPot.line === i + 1 && flowerPot.column === j &&
-        flowerPot.line === i && flowerPot.column === j + 1
-      )
-    ) {
-      sides += 2;
-    }
-  }
-  console.log("sides", sides, region);
-
-  return sides;
+  const corners: number = computeNumberOfConcaveCorners(region) +
+    computeNumberOfConvexCorners(region);
+  //console.log(corners, region);
+  return corners;
 }
 
 class FlowerPot {
@@ -150,4 +97,124 @@ class FlowerPot {
     public line: number,
     public column: number,
   ) {}
+}
+
+function computeNumberOfConcaveCorners(pots: FlowerPot[]): number {
+  let corners = 0;
+
+  for (const flowerPot of pots) {
+    const hasPotOnTop: boolean = pots.some(
+      (pot) =>
+        pot.line === flowerPot.line - 1 && pot.column === flowerPot.column,
+    );
+
+    const hasPotOnBottom: boolean = pots.some(
+      (pot) =>
+        pot.line === flowerPot.line + 1 && pot.column === flowerPot.column,
+    );
+
+    const hasPotOnLeft: boolean = pots.some(
+      (pot) =>
+        pot.line === flowerPot.line && pot.column === flowerPot.column - 1,
+    );
+
+    const hasPotOnRight: boolean = pots.some(
+      (pot) =>
+        pot.line === flowerPot.line && pot.column === flowerPot.column + 1,
+    );
+
+    if (!hasPotOnTop && !hasPotOnLeft) {
+      corners++;
+    }
+
+    if (!hasPotOnTop && !hasPotOnRight) {
+      corners++;
+    }
+
+    if (!hasPotOnBottom && !hasPotOnLeft) {
+      corners++;
+    }
+
+    if (!hasPotOnBottom && !hasPotOnRight) {
+      corners++;
+    }
+  }
+
+  return corners;
+}
+
+function computeNumberOfConvexCorners(pots: FlowerPot[]): number {
+  let corners = 0;
+
+  for (const flowerPot of pots) {
+    const hasPotOnTop: boolean = pots.some(
+      (pot) =>
+        pot.line === flowerPot.line - 1 && pot.column === flowerPot.column,
+    );
+
+    const hasPotOnBottom: boolean = pots.some(
+      (pot) =>
+        pot.line === flowerPot.line + 1 && pot.column === flowerPot.column,
+    );
+
+    const hasPotOnLeft: boolean = pots.some(
+      (pot) =>
+        pot.line === flowerPot.line && pot.column === flowerPot.column - 1,
+    );
+
+    const hasPotOnRight: boolean = pots.some(
+      (pot) =>
+        pot.line === flowerPot.line && pot.column === flowerPot.column + 1,
+    );
+
+    if (hasPotOnTop && hasPotOnLeft) {
+      const hasPotOnTopLeft: boolean = pots.some(
+        (pot) =>
+          pot.line === flowerPot.line - 1 &&
+          pot.column === flowerPot.column - 1,
+      );
+
+      if (!hasPotOnTopLeft) {
+        corners++;
+      }
+    }
+
+    if (hasPotOnTop && hasPotOnRight) {
+      const hasPotOnTopRight: boolean = pots.some(
+        (pot) =>
+          pot.line === flowerPot.line - 1 &&
+          pot.column === flowerPot.column + 1,
+      );
+
+      if (!hasPotOnTopRight) {
+        corners++;
+      }
+    }
+
+    if (hasPotOnBottom && hasPotOnLeft) {
+      const hasPotOnBottomLeft: boolean = pots.some(
+        (pot) =>
+          pot.line === flowerPot.line + 1 &&
+          pot.column === flowerPot.column - 1,
+      );
+
+      if (!hasPotOnBottomLeft) {
+        corners++;
+      }
+    }
+
+    if (hasPotOnBottom && hasPotOnRight) {
+      const hasPotOnBottomRight: boolean = pots.some(
+        (pot) =>
+          pot.line === flowerPot.line + 1 &&
+          pot.column === flowerPot.column + 1,
+      );
+
+      if (!hasPotOnBottomRight) {
+        corners++;
+      }
+    }
+  }
+
+  return corners;
 }

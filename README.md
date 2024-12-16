@@ -6,13 +6,13 @@ My results:
 
 ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ (1st december to 10th)
 
-⭐️🚫 ; ⭐️🚫 ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ❓❓ ; ❓❓ ; ❓❓ ; ❓❓ ; ❓❓ (11th december to 20th)
+⭐️🚫 ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; 🚫🚫 ; ❓❓ ; ❓❓ ; ❓❓ ; ❓❓ (11th december to 20th)
 
 ❓❓ ; ❓❓ ; ❓❓ ; ❓❓ ; ❓❓ (21st december to 25th)
 
 Meaning (each problem is divided into two parts):
-* **13** days done with 2 golden stars (both parts done within the 24 hours limit): show with ⭐️⭐️
-* **2** days done with only 1 golden star: show with one ⭐️ (within the 24 hours limit)
+* **14** days done with 2 golden stars (both parts done): show with ⭐️⭐️
+* **1** days done with only 1 golden star: show with one ⭐️
 * If 🚫 is shown, it means that I didn't succeed to solve the problem
 * If ❓ is shown, it means that I didn't try to solve the problem yet
 
