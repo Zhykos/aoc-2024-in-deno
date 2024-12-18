@@ -103,7 +103,7 @@ export function day18part1(): number {
   return Number.parseInt(result[result.length - 1]);
 }
 
-function matrixToString(
+/*function matrixToString(
   graphMatrix: (GraphNode<Position> | null)[][],
 ): string {
   let result = "";
@@ -119,7 +119,7 @@ function matrixToString(
   }
 
   return result;
-}
+}*/
 
 class Position implements InnerObject {
   constructor(public x: number, public y: number) {}
