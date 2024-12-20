@@ -6,7 +6,7 @@ My results:
 
 ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ (1st december to 10th)
 
-⭐️🚫 ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; 🚫🚫 ; ⭐️🚫 ; ⭐️⭐️ ; ⭐️❓ ; ❓❓ (11th december to 20th)
+⭐️🚫 ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; 🚫🚫 ; ⭐️🚫 ; ⭐️⭐️ ; ⭐️🚫 ; ❓❓ (11th december to 20th)
 
 ❓❓ ; ❓❓ ; ❓❓ ; ❓❓ ; ❓❓ (21st december to 25th)
 
@@ -37,3 +37,4 @@ Clues for not resolved problems:
 * Day 11 part 2: I have to find a way to optimize the algorithm, it's too slow.
 * Day 16 part 1: I need to implement Dijkstra's algorithm to solve the problem.
 * Day 17 part 2: I need to reverse compute all operations to find the initial value.
+* Day 20 part 2: I need to optimize the algorithm to find the solution.
