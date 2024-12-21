@@ -6,14 +6,13 @@ My results:
 
 ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ (1st december to 10th)
 
-⭐️🚫 ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; 🚫🚫 ; ⭐️🚫 ; ⭐️⭐️ ; ⭐️🚫 ; ❓❓ (11th december to 20th)
+⭐️🚫 ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; ⭐️⭐️ ; 🚫🚫 ; ⭐️🚫 ; ⭐️⭐️ ; ⭐️🚫 ; 🚫🚫 (11th december to 20th)
 
-❓❓ ; ❓❓ ; ❓❓ ; ❓❓ ; ❓❓ (21st december to 25th)
+🚫🚫 ; ❓❓ ; ❓❓ ; ❓❓ ; ❓❓ (21st december to 25th)
 
 Meaning (each problem is divided into two parts):
 * **15** days done with 2 golden stars (both parts done): show with ⭐️⭐️
 * **3** days done with only 1 golden star: show with one ⭐️
-* **1** day done with no golden star: show with 🚫
 * If 🚫 is shown, it means that I didn't succeed to solve the problem
 * If ❓ is shown, it means that I didn't try to solve the problem yet
 
@@ -37,4 +36,5 @@ Clues for not resolved problems:
 * Day 11 part 2: I have to find a way to optimize the algorithm, it's too slow.
 * Day 16 part 1: I need to implement Dijkstra's algorithm to solve the problem.
 * Day 17 part 2: I need to reverse compute all operations to find the initial value.
-* Day 20 part 2: I need to optimize the algorithm to find the solution.
+* Day 20 part 1: I need to optimize the algorithm to find the solution.
+* Day 21 part 1: I almost found a solution, but I need to find a way to fix the algorythm to prevent paths which change a lot of coordinates (like a stair). And I'm tired...

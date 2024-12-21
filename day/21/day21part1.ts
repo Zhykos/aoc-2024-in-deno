@@ -1,7 +1,7 @@
 import { Dijkstra, NodeVertex, Vertex } from "../21/dijkstra-algorithm.ts";
 
 export function day21part1(): number {
-  const inputRaw: string = Deno.readTextFileSync(
+  const _: string = Deno.readTextFileSync(
     "./day/21/input/input.txt",
   );
 
@@ -9,7 +9,7 @@ export function day21part1(): number {
   const directionalKeypad: Dijkstra = dijDirectionalKeypad();
 
   let score = 0;
-  const codes: string[] = ["029A", "980A", "179A", "456A", "379A"];
+  const codes: string[] = ["179A", "456A"];
 
   for (const code of codes) {
     let numericStart = "A";
@@ -29,12 +29,11 @@ export function day21part1(): number {
       }
 
       const dir1: string[] = getDirectionsForNumericKeypad(numPath);
-      if (i >= 2) {
-        //console.log(`Directional keypad 1: ${dir1}`);
-      }
+
+      console.log(`Directional keypad 1: ${dir1}`);
 
       for (const d1 of dir1) {
-        const dir1Path: string[] = findShortestWay(
+        const dir1Path: string[] = findShortestWayForDirection(
           d1start,
           d1,
           directionalKeypad,
@@ -53,7 +52,7 @@ export function day21part1(): number {
         }
 
         for (const d2 of dir2) {
-          const dir2Path: string[] = findShortestWay(
+          const dir2Path: string[] = findShortestWayForDirection(
             d2start,
             d2,
             directionalKeypad,
@@ -78,7 +77,7 @@ export function day21part1(): number {
 
         // Go back to A for d2 to execute d1 action
 
-        const dir2PathBack: string[] = findShortestWay(
+        const dir2PathBack: string[] = findShortestWayForDirection(
           d2start,
           "A",
           directionalKeypad,
@@ -97,7 +96,7 @@ export function day21part1(): number {
 
       // Go back to A for d1 to execute numeric keyboard action
 
-      const dir1PathBack: string[] = findShortestWay(
+      const dir1PathBack: string[] = findShortestWayForDirection(
         d1start,
         "A",
         directionalKeypad,
@@ -109,7 +108,7 @@ export function day21part1(): number {
       );
 
       for (const d2 of dir1Back) {
-        const dir2Path: string[] = findShortestWay(
+        const dir2Path: string[] = findShortestWayForDirection(
           d2start,
           d2,
           directionalKeypad,
@@ -126,7 +125,7 @@ export function day21part1(): number {
 
       // Go back to A for d1 to execute numeric keyboard action
 
-      const dir2PathBack2: string[] = findShortestWay(
+      const dir2PathBack2: string[] = findShortestWayForDirection(
         d2start,
         "A",
         directionalKeypad,
@@ -153,7 +152,9 @@ export function day21part1(): number {
     const codeNumeric: number = Number.parseInt(
       (/(\d+)/.exec(code) as RegExpExecArray)[0],
     );
-    console.log(`codeNumeric: ${codeNumeric}, humanPath: ${humanPath.length}`);
+    console.log(
+      `code: ${code}, codeNumeric: ${codeNumeric}, humanPath: ${humanPath.length}`,
+    );
 
     score += codeNumeric * humanPath.length;
   }
@@ -467,7 +468,11 @@ function getDirectionsForDirectionalKeypad(path: string[]): string[] {
   return directions;
 }
 
-function findShortestWay(start: string, end: string, dij: Dijkstra): string[] {
+function findShortestWayForDirection(
+  start: string,
+  end: string,
+  dij: Dijkstra,
+): string[] {
   if (start === "A" && end === "<") {
     return ["A", ">", "v", "<"];
   }
