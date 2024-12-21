@@ -271,7 +271,7 @@ class GraphNodePosition {
   }
 }
 
-function matrixToString(graphMatrix: GraphNodePosition[][]): string {
+/*function matrixToString(graphMatrix: GraphNodePosition[][]): string {
   let result = "";
 
   for (let i = 0; i < graphMatrix.length; i++) {
@@ -283,7 +283,7 @@ function matrixToString(graphMatrix: GraphNodePosition[][]): string {
   }
 
   return result;
-}
+}*/
 
 function computeDijkstra(
   graphMatrix: GraphNodePosition[][],
